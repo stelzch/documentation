@@ -784,7 +784,7 @@ Inside these are normal routes.
 Now your method will be reachable via ``<server>/ocs/v2.php/apps/<APPNAME>/api/v1/shares``
 
 .. versionadded:: 29
-    You can use the attribute ``ApiRoute`` as described in :doc:`Routing <routing>` instead of the entry in ``appinfo/routed.php`` as an alternative.
+    You can use the attribute ``ApiRoute`` as described in :doc:`Routing <routing>` instead of the entry in ``appinfo/routes.php`` as an alternative.
 
 
 Handling errors
