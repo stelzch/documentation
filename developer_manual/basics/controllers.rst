@@ -732,10 +732,15 @@ The following policy for instance allows images, audio and videos from other dom
 OCS
 ^^^
 
-.. note:: This is purely for compatibility reasons. If you are planning to offer an external API, go for a :doc:`../digging_deeper/rest_apis` instead.
+In order to simplify exchange of data between the Nextcloud backend and any client (be it the web frontend or whatever else), the OCS API has been introduced.
+Here, JSON and XML responders have been prepared and are installed without additional effort.
 
-In order to ease migration from OCS API routes to the App Framework, an additional controller and response have been added. To migrate your API you can use the **OCP\\AppFramework\\OCSController** base class and return your data in the form of a DataResponse in the following way:
+.. note::
+    The usage of OCS is closely related to the usage of :doc:`../digging_deeper/rest_apis`.
+    Unless you have a clear use-case, it is advised to use OCS over pure REST.
+    A more detailed description can be found in :ref:`ocs-vs-rest`.
 
+To use OCS in your API you can use the **OCP\\AppFramework\\OCSController** base class and return your data in the form of a **DataResponse** in the following way:
 
 .. code-block:: php
 
@@ -759,7 +764,7 @@ In order to ease migration from OCS API routes to the App Framework, an addition
 
 The format parameter works out of the box, no intervention is required.
 
-In order to make routing work for OCS routes you need to add a separate 'ocs' entry to the routing table of your app.
+In order to make routing work for OCS routes you need to add a separate 'ocs' entry to the routing table in ``appinf/routes.php`` of your app.
 Inside these are normal routes.
 
 .. code-block:: php
@@ -777,6 +782,10 @@ Inside these are normal routes.
    ];
 
 Now your method will be reachable via ``<server>/ocs/v2.php/apps/<APPNAME>/api/v1/shares``
+
+.. versionadded:: 29
+    You can use the attribute ``ApiRoute`` as described in :doc:`Routing <routing>` instead of the entry in ``appinfo/routed.php`` as an alternative.
+
 
 Handling errors
 ^^^^^^^^^^^^^^^
