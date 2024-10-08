@@ -382,6 +382,8 @@ Because returning JSON is such a common task, there's even a shorter way to do t
 
 Why does this work? Because the dispatcher sees that the controller did not return a subclass of a Response and asks the controller to turn the value into a Response. That's where responders come in.
 
+.. _controller-responders:
+
 Responders
 ^^^^^^^^^^
 
@@ -762,7 +764,11 @@ To use OCS in your API you can use the **OCP\\AppFramework\\OCSController** base
 
     }
 
-The format parameter works out of the box, no intervention is required.
+For ``OCSController`` classes and their methods, :ref:`responders <controller-responders>` can be registered as with any other ``Controller`` method.
+The ``OCSController`` class have however automatically two respo    nders pre-installed:
+Both JSON (``application/json``) and XML (``text/xml``) are generated on-the-fly depending on the request by the browser/user.
+To select the output format, the format parameter or the ``Accept`` header of the request work out of the box, no intervention is required.
+It is advised to prefer the header generally, as this is the more programmatic way.
 
 In order to make routing work for OCS routes you need to add a separate 'ocs' entry to the routing table in ``appinf/routes.php`` of your app.
 Inside these are normal routes.
