@@ -765,12 +765,12 @@ To use OCS in your API you can use the **OCP\\AppFramework\\OCSController** base
     }
 
 For ``OCSController`` classes and their methods, :ref:`responders <controller-responders>` can be registered as with any other ``Controller`` method.
-The ``OCSController`` class have however automatically two respo    nders pre-installed:
+The ``OCSController`` class have however automatically two responders pre-installed:
 Both JSON (``application/json``) and XML (``text/xml``) are generated on-the-fly depending on the request by the browser/user.
-To select the output format, the format parameter or the ``Accept`` header of the request work out of the box, no intervention is required.
+To select the output format, the `?format=` query parameter or the ``Accept`` header of the request work out of the box, no intervention is required.
 It is advised to prefer the header generally, as this is the more programmatic way.
 
-In order to make routing work for OCS routes you need to add a separate 'ocs' entry to the routing table in ``appinf/routes.php`` of your app.
+In order to make routing work for OCS routes you need to add a separate 'ocs' entry to the routing table in ``appinfo/routes.php`` of your app.
 Inside these are normal routes.
 
 .. code-block:: php
