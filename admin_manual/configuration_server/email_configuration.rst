@@ -35,6 +35,9 @@ Sendmail when your mail server is on the same machine as Nextcloud.
 
 Mail Providers
 --------------
+
+.. versionadded:: 30
+
 A mail provider is an app that provides outbound mail service to Nextcloud and allows the sending of system emails
 directly through a user's configured personal email account instead of the system email account.
 At present, this functionality is limited to calendar invitations.
